@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border Radius Previewer - CSS</title>
+    <style>
+        html, body{
+            padding: 0;
+            border: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            background-color: #00002e;
+            display: grid;
+            box-sizing: border-box;
+        }
+
+        body{
+            height: 100%;
+            width: 100%;
+            grid-template-rows: 5% 80% 15%;
+            grid-template-areas: "header"
+                                 "main"
+                                 "footer";
+        }
+
+        .grid{display:grid}
+
+        header{
+            grid-area: header;
+            align-content: initial;
+            justify-content: center;
+        }
+        main{
+            height: 100%;
+            width: 100%;
+            grid-area: main;
+            align-content: center;
+            justify-content: center;
+        }
+        footer{
+            display: grid;
+            grid-area: footer;
+            color: white;
+            font-family: Verdana;
+        }
+        .box{
+            background-color: #34538a;
+            height:90%;
+            width: 90%;
+            grid-column: 2/3;
+            grid-row: 2/3;
+            justify-self: center;
+            align-self: center;
+            color: white;
+            font-family: Verdana;
+        }
+
+        #box{
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            justify-content: center;
+            align-content: center;
+        }
+        h1{
+            color: white;
+            font-family: Verdana;
+            font-weight: lighter;
+        }
+        .borderedit{
+            width: 100%;
+            text-align: center;
+            background-color: #34538a;
+            color:white;
+            border: green;
+        }
+        #bordertopleft{
+            grid-column: 1/1;
+            grid-row: 1/1;
+            }
+        #bordertopright{
+            grid-column: 3/3;
+            grid-row: 1/1;
+            }
+        #borderbottomleft{
+            grid-column: 1/1;
+            grid-row: 3/3;
+            }
+        #borderbottomright{
+            grid-column: 3/3;
+            grid-row: 3/3;
+        }
+
+        .container{
+            height: 70vh;
+            width: 100vh;
+            display: grid;
+            grid-template-columns: 5% 90% 5%;
+            grid-template-rows: 5% 90% 5%;
+        }
+        #creditos{
+            width: 30%;
+            justify-self: center;
+        }
+    </style>
+</head>
+<body>
+    <header class=grid>
+    <h1>Border Radius Previewer</h1>
+    </header>
+    <main class=grid>
+        <div class=container>
+        <input type="text" id="bordertopleft" placeholder="0" class="borderedit" onkeyup="changeBTopLeft()">
+        <input type="text" id="bordertopright" placeholder="0" class="borderedit" onkeyup="changeBTopRight()">
+        <input type="text" id="borderbottomleft" placeholder="0" class="borderedit" onkeyup="changeBBottomLeft()">
+        <input type="text" id="borderbottomright" placeholder="0" class="borderedit" onkeyup="changeBBottomRight()">
+        <div class="box border grid" id="box">
+            <span id="btl"></span>
+            <span id="btr"></span>
+            <span id="bbl"></span>
+            <span id="bbr"></span>
+        </div>
+        </div>
+        <script>
+            var btopleft = document.getElementById('bordertopleft');
+            var btopright = document.getElementById('bordertopright');
+            var bbotleft = document.getElementById('borderbottomleft');
+            var bbotright = document.getElementById('borderbottomright');
+            var box = document.getElementById('box')
+            var displayborderinfo = document.getElementById('displayborderinfo');
+            var btl = document.getElementById('btl');
+            var btr = document.getElementById('btr');
+            var bbl = document.getElementById('bbl');
+            var bbr = document.getElementById('bbr');
+            
+            function changeBTopLeft(){
+                box.style.borderTopLeftRadius = btopleft.value + "px";
+                if (btopleft.value == 0) {
+                    btl.innerHTML="";
+                }else{
+                    btl.innerHTML="border-top-left-radius: " + btopleft.value + "px;" 
+                }
+            }
+            function changeBTopRight(){
+                box.style.borderTopRightRadius = btopright.value + "px";
+                if (btopright.value == 0) {
+                    btr.innerHTML="";
+                }else{
+                    btr.innerHTML="border-top-right-radius: " + btopright.value + "px;" 
+                }
+            }
+            function changeBBottomLeft(){
+                box.style.borderBottomLeftRadius = bbotleft.value + "px";
+                if (bbotleft.value == 0) {
+                    bbl.innerHTML="";
+                }else{
+                    bbl.innerHTML="border-bottom-left-radius: " + bbotleft.value + "px;" 
+                }
+            }
+            function changeBBottomRight(){
+                box.style.borderBottomRightRadius = bbotright.value + "px";
+                if (bbotright.value == 0) {
+                    bbr.innerHTML="";
+                }else{
+                    bbr.innerHTML="border-bottom-right-radius: " + bbotright.value + "px;" 
+                }
+            }
+        </script>
+    </main>
+    <footer class=grid>
+        <span id=creditos><p style="text-align: center;">Criado por <a href="https://www.linkedin.com/in/eduardo-pinheiro-44152a170/">Eduardo Pinheiro</a><a href="https://github.com/eduardopinheiromr"><br><img src="https://www.sferalabs.cc/wp-content/uploads/github-logo-white.png" style="width:20%;height:20%;"></a></p>
+        </span>
+    </footer>
+</body>
+</html>
