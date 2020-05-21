@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        background-color: lightgray;
+        display: grid;
+        box-sizing: border-box;
+      }
+      body {
+        grid-template-rows: 10% 20% 70%;
+        grid-template-areas:
+          'header'
+          'display'
+          'teclado';
+      }
+      header {
+        grid-area: header;
+      }
+      #display {
+        grid-area: display;
+        display: grid;
+        height: 80%;
+        width: 60%;
+        justify-self: center;
+        background-color: darkgrey;
+        grid-template-columns: 1fr 8fr;
+        grid-template-rows: 1fr 2fr;
+        grid-template-areas:
+          'historico resultado'
+          'historico input';
+      }
+      #historico {
+        height: 100%;
+        width: 100%;
+        background-color: whitesmoke;
+        grid-area: historico;
+      }
+      #displayresultado {
+        display: grid;
+        height: 100%;
+        width: 100%;
+        background-color: white;
+        color: darkgrey;
+        font-size: 15pt;
+        grid-area: resultado;
+        align-content: center;
+        justify-content: flex-end;
+      }
+      #input {
+        grid-area: input;
+        box-sizing: border-box;
+        border: none;
+        height: 100%;
+        width: 100%;
+        text-align: right;
+        font-size: 20pt;
+      }
+      .teclado {
+        display: grid;
+        grid-area: teclado;
+        height: 80%;
+        width: 60%;
+        justify-self: center;
+        background-color: gray;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-areas:
+          'sen sete oito nove divisao'
+          'cos seis cinco quatro multiplicacao'
+          'tan tres dois um subtracao'
+          'porcentagem zeroo virgula igual adicao'
+          'limpar limpar limpar limpar limparinput';
+      }
+      .tecla {
+        display: grid;
+        background-color: white;
+        text-align: center;
+        align-content: center;
+        font-size: 15pt;
+      }
+      #um {
+        grid-area: um;
+      }
+      #dois {
+        grid-area: dois;
+      }
+      #tres {
+        grid-area: tres;
+      }
+      #quatro {
+        grid-area: quatro;
+      }
+      #cinco {
+        grid-area: cinco;
+      }
+      #seis {
+        grid-area: seis;
+      }
+      #sete {
+        grid-area: sete;
+      }
+      #oito {
+        grid-area: oito;
+      }
+      #nove {
+        grid-area: nove;
+      }
+      #zero {
+        grid-area: zeroo;
+      }
+      #virgula {
+        grid-area: virgula;
+      }
+      #adicao {
+        grid-area: adicao;
+      }
+      #subtracao {
+        grid-area: subtracao;
+      }
+      #divisao {
+        grid-area: divisao;
+      }
+      #multiplicacao {
+        grid-area: multiplicacao;
+      }
+      #porcentagem {
+        grid-area: porcentagem;
+      }
+      #igual {
+        grid-area: igual;
+      }
+      #sen {
+        background-color: gray;
+        border: none;
+        grid-area: sen;
+      }
+      #cos {
+        background-color: gray;
+        border: none;
+        grid-area: cos;
+      }
+      #tan {
+        background-color: gray;
+        border: none;
+        grid-area: tan;
+      }
+      #limpar {
+        grid-area: limpar;
+      }
+      #limparinput {
+        grid-area: limparinput;
+      }
+    </style>
+  </head>
+  <body>
+    <header></header>
+    <div id="display">
+      <span id="loghistorico"></span>
+      <span id="displayresultado" placeholder=""></span>
+      <input id="input" type="text" placeholder="0" />
+    </div>
+    <div class="teclado">
+      <button class="tecla" id="um" onclick="tecla(this)" value="1">1</button>
+      <button class="tecla" id="dois" onclick="tecla(this)" value="2">2</button>
+      <button class="tecla" id="tres" onclick="tecla(this)" value="3">3</button>
+      <button class="tecla" id="quatro" onclick="tecla(this)" value="4">
+        4
+      </button>
+      <button class="tecla" id="cinco" onclick="tecla(this)" value="5">
+        5
+      </button>
+      <button class="tecla" id="seis" onclick="tecla(this)" value="6">6</button>
+      <button class="tecla" id="sete" onclick="tecla(this)" value="7">7</button>
+      <button class="tecla" id="oito" onclick="tecla(this)" value="8">8</button>
+      <button class="tecla" id="nove" onclick="tecla(this)" value="9">9</button>
+      <button class="tecla" id="zero" onclick="tecla(this)" value="0">
+        0
+      </button>
+      <button class="tecla" id="igual" onclick="igual()">=</button>
+      <button class="tecla" id="virgula" onclick="ponto()">.</button>
+      <button class="tecla" id="adittion" onclick="adittion()">+</button>
+      <button class="tecla" id="subtraction" onclick="subtraction()">
+        -
+      </button>
+      <button class="tecla" id="division" onclick="division()">÷</button>
+      <button class="tecla" id="multiplication" onclick="multiplication()">
+        x
+      </button>
+      <button class="tecla" id="porcentagem" onclick="porcentagem()">%</button>
+      <button class="tecla" id="sen" onclick="sen()" disabled>sen</button>
+      <button class="tecla" id="cos" onclick="cos()" disabled>cos</button>
+      <button class="tecla" id="tan" onclick="tan()" disabled>tan</button>
+      <button class="tecla" id="limpar" onclick="limparResultado()">
+        Clear All
+      </button>
+      <button class="tecla" id="limparinput" onclick="limparInput()">
+        C
+      </button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
