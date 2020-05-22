@@ -48,7 +48,7 @@ h1 {
 
 .container {
   min-height: 60%;
-  width: 50%;
+  min-width: 60%;
   background: rgb(233, 233, 233);
   display: flex;
   flex-direction: column;
@@ -96,22 +96,25 @@ footer .logo {
 }
 
 @media (max-width: 900px) {
+  .container {
+    min-width: 80%;
+  }
   #descricao {
     text-align: center;
-    width: 50%;
+    width: 80%;
   }
   #texto {
     text-align: center;
-    width: 50%;
+    width: 80%;
   }
   .inputexto {
-    width: 50%;
+    width: 70%;
   }
   #divcheckbox {
     text-align: center;
-    width: 50%;
+    width: 70%;
   }
   #submit {
-    width: 50%;
+    width: 70%;
   }
 }
