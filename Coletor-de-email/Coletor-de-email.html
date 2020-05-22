@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!--<div class="conteudo">-->
+    <header>
+      <span>marca</span>
+      <img src="/Coletor-de-email/_img/logo.svg" class="logo" />
+    </header>
+
+    <main>
+      <h1>Chamada</h1>
+      <div id="descricao">
+        <span
+          >Sou o motivo do usuário se submeter a digitar seus dados pessoais e
+          enviar pro seu servidor.</span
+        >
+      </div>
+      <div class="container">
+        <div id="texto">
+          <span>Cadastre-se para receber o material por email!</span>
+        </div>
+        <input
+          type="text"
+          id="nome"
+          class="inputexto"
+          onfocus="cliqueNome()"
+          placeholder="Seu nome..."
+        />
+        <input
+          type="email"
+          id="email"
+          class="inputexto"
+          onfocus="cliqueEmail()"
+          placeholder="Seu email..."
+        />
+        <div id="divcheckbox">
+          <input
+            type="checkbox"
+            id="concordo"
+            checked
+            onclick="cliqueCheckbox()"
+          />
+          <span>Quero receber novidades por email.</span>
+        </div>
+        <input type="submit" id="submit" onclick="cliqueSubmit()" />
+      </div>
+    </main>
+    <footer>
+      <img src="/Coletor-de-email/_img/logo.svg" class="logo" />
+      <span>&copy; Marca</span>
+    </footer>
+    <!--</div>-->
+    <script src="script.js"></script>
+  </body>
+</html>

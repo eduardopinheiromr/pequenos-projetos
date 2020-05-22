@@ -1,0 +1,117 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: SEGOE UI;
+  color: darkslategray;
+}
+
+header {
+  min-height: 20%;
+  background: rgb(233, 233, 233);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30pt;
+  flex-direction: column;
+  font-weight: bold;
+  color: black;
+}
+
+header .logo {
+  height: 100px;
+}
+
+header span {
+  margin-bottom: -25px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70%;
+  background-color: whitesmoke;
+}
+h1 {
+  text-align: center;
+}
+
+#descricao {
+  margin-bottom: 50px;
+}
+
+.container {
+  min-height: 60%;
+  width: 50%;
+  background: rgb(233, 233, 233);
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  box-shadow: 0px 1px 100px rgb(189, 189, 189);
+}
+#texto {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.inputexto {
+  height: 30px;
+  width: 300px;
+  border-radius: 10px;
+  margin-top: 5px;
+  padding: 3px;
+  padding-left: 15px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+#submit {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  height: 35px;
+  width: 300px;
+  border-radius: 10px;
+  border: none;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 10%;
+  background: rgb(233, 233, 233);
+}
+
+footer .logo {
+  height: 30px;
+}
+
+@media (max-width: 900px) {
+  #descricao {
+    text-align: center;
+    width: 50%;
+  }
+  #texto {
+    text-align: center;
+    width: 50%;
+  }
+  .inputexto {
+    width: 50%;
+  }
+  #divcheckbox {
+    text-align: center;
+    width: 50%;
+  }
+  #submit {
+    width: 50%;
+  }
+}
